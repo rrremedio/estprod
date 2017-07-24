@@ -1,0 +1,23 @@
+Package: estprod
+Title: Estimation of Production Functions
+Version: 0.0.1
+Date: 2017-07-23
+Authors@R: c(
+    person("Rodrigo", "R Remédio", , email = "rremedio@hotmail.com", role = c("aut", "cre")),
+    person("Paul", "Schrimpf",,, role = "ctb", comment = "panel_lag function")
+    )
+Description: Estimation of production functions by the Olley-Pakes and Levinsohn-Petrin methodologies. 
+    The package aims to reproduce the results obtained with the Stata's user written opreg <http://www.stata-journal.com/article.html?article=st0145> and levpet <http://www.stata-journal.com/article.html?article=st0060> commands. 
+    The first was originally proposed by Olley, G.S. and Pakes, A. (1996) <doi:10.2307/2171831>.
+    And the second by Levinsohn, J. and Petrin, A. (2003) <doi:10.1111/1467-937X.00246>.
+Depends: R (>= 3.4.1)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports: lazyeval,
+    boot,
+    minpack.lm,
+    Formula
+
+
