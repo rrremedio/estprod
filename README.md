@@ -16,11 +16,15 @@ olley_pakes(data = estprod_data, y ~ free | capital | proxy | controls, exit = ~
 levinsohn_petrin(data = estprod_data, y ~ free | capital | proxy | controls, exit = ~exit, id = "id", time = "year", bootstrap = TRUE, reps = 2, gross = FALSE)
 ```
 
-```id``` and ```time``` are panel dimensions parameters.
-```exit``` is an optional formula indicator of the last firm's period. 
-```bootstrap``` is logical indicating if bootstraped standard errors should be calculated.
-```reps``` is number of bootstrap replications.
-```gross``` is a logical which indicates if dependent variable is gross output. Only in ```levinsohn_petrin```.
+- ```id``` and ```time``` are panel dimensions parameters.
+
+- ```exit``` is an optional formula indicator of the last firm's period. 
+
+- ```bootstrap``` is logical indicating if bootstraped standard errors should be calculated.
+
+- ```reps``` is number of bootstrap replications.
+
+- ```gross``` is a logical which indicates if dependent variable is gross output. Only in ```levinsohn_petrin```.
 
 Installing
 --------
