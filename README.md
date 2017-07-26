@@ -10,11 +10,11 @@ Getting Started
 
 Basic syntax is formed by a multipart formula which must be specified in the following order (additional controls are optional):
 
-	```R
-	olley_pakes(data = estprod_data, y ~ free | capital | proxy | controls, exit = ~exit, id = "id", time = "year", bootstrap = TRUE, reps =2)
+```R
+olley_pakes(data = estprod_data, y ~ free | capital | proxy | controls, exit = ~exit, id = "id", time = "year", bootstrap = TRUE, reps =2)
 	
-	levinsohn_petrin(data = estprod_data, y ~ free | capital | proxy | controls, exit = ~exit, id = "id", time = "year", bootstrap = TRUE, reps = 2, gross = FALSE)
-	```
+levinsohn_petrin(data = estprod_data, y ~ free | capital | proxy | controls, exit = ~exit, id = "id", time = "year", bootstrap = TRUE, reps = 2, gross = FALSE)
+```
 
 ```id``` and ```time``` are panel dimensions parameters.
 ```exit``` is an optional formula indicator of the last firm's period. 
