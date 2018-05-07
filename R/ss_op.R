@@ -45,6 +45,7 @@ ss_op <- function(y, free, capital, proxy, controls, id, time, phi, myprobit_lag
     op <- qr.resid(op, data_ss[, "y_ss"] - data_ss[, colnames(capital)] %*% as.matrix(beta_k))
     
     return(op)
+    #return(sum(op^2))
 
   }
   
@@ -52,10 +53,13 @@ ss_op <- function(y, free, capital, proxy, controls, id, time, phi, myprobit_lag
   with_exit <- ifelse(!is.null(myprobit_lag), 1, 0)
   n_start <- k_length + 1 + poly_elements(k_length + with_exit, d = degree[2])[[2]]
   
-  start <- rep(0, n_start)
+  start <- rep(.2624996, n_start)
   
   
-  ss_reg <- minpack.lm::nls.lm(par = start, fn = objective, control = minpack.lm::nls.lm.control(maxiter = maxiter))
+  ss_reg <- minpack.lm::nls.lm(par = start, fn = objective, control = minpack.lm::nls.lm.control(maxiter = maxiter, nprint = 0))
+  #ss_reg <- optimx::optimx(par = start, fn = objective, method = c('Nelder-Mead', 'BFGS', 'CG', 'L-BFGS-B', 'nlm', 
+  #    'nlminb', 'spg', 'ucminf', 'newuoa', 'bobyqa', 'nmkb', 'hjkb', 'Rcgmin', 'Rvmmin'), itnmax = 100, control = list(ndeps = 1e-6))
+  #print(ss_reg)
  
   assign("ss_reg", ss_reg, envir = parent.frame())
   

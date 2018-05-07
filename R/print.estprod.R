@@ -17,6 +17,8 @@ print.estprod <- function(x, ...){
     Coefficients <- cbind(Estimate = x$t0, `Std. Error` = se, 
                           `z value` = x$t0/se, `Pr(>|z|)` = 2 * pnorm(abs(x$t0/se), lower.tail = FALSE))
 
+    Coefficients <- Coefficients[1:length(x$varnames),] #filtra para não icluir termos do polinomio
+    
     rownames(Coefficients) <- x$varnames
     
     results[["Coefficients"]] <- Coefficients
@@ -30,6 +32,8 @@ print.estprod <- function(x, ...){
     cat("Levinsoh-Petrin Production Function Estimator\n\n")
   } else if (results$Call[[1]] == "olley_pakes") {
     cat("Olley-Pakes Production Function Estimator\n\n")
+  } else if (results$Call[[1]] == "wooldridge") {
+    cat("Wooldridge Production Function Estimator\n\n")
   }
   
   class(results) <- "list"
@@ -40,5 +44,10 @@ print.estprod <- function(x, ...){
   
   cat("Coefficients\n")
   printCoefmat(results[["Coefficients"]])
+  cat("\n")
+  
+  if (any(class(x) == "boot")) {
+    cat("#Bootstraped standard errors.")
+  }
   
 }

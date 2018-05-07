@@ -1,4 +1,4 @@
-ss_lp_gross <- function(y, free, capital, proxy, controls, id, time, phi, myprobit_lag, k_length, proxy_length, controls_length, beta_fs_matrix, beta_fs_free, maxiter, ...) {
+ss_lp_gross <- function(y, free, capital, proxy, controls, id, time, phi, myprobit_lag, k_length, proxy_length, controls_length, beta_fs_matrix, beta_fs_free, maxiter = 1000, ...) {
   
   #-----------------------------------------------------
   #Segundo estágio (ss) gross
@@ -78,7 +78,7 @@ ss_lp_gross <- function(y, free, capital, proxy, controls, id, time, phi, myprob
   #n_start = n_capital
   start <- rep(0, (k_length + switch((controls_length > 0) + 1 , 1, controls_length) + proxy_length))
   
-  ss_reg <- minpack.lm::nls.lm(par = start, fn = objective, control = minpack.lm::nls.lm.control(maxiter = maxiter))
+  ss_reg <- minpack.lm::nls.lm(par = start, fn = objective, control = minpack.lm::nls.lm.control(maxiter = maxiter, nprint = 0))
   
   assign("ss_reg", ss_reg, envir = parent.frame())
 }
