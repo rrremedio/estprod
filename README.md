@@ -16,7 +16,7 @@ olley_pakes(data = estprod_data, y ~ free | capital | proxy | controls, exit = ~
 	
 levinsohn_petrin(data = estprod_data, y ~ free | capital | proxy | controls, exit = ~exit, id = "id", time = "year", bootstrap = TRUE, reps = 2, gross = FALSE)
 
-wooldridge(data = estprod_data, var1 ~ var2 | var3 | var4 | var5,  id = "id", time = "year", bootstrap = TRUE)
+wooldridge(data = estprod_data, y ~ free | capital | proxy | controls,  id = "id", time = "year", bootstrap = TRUE)
 ```
 
 - ```id``` and ```time``` are panel dimensions parameters.
