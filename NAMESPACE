@@ -5,5 +5,10 @@ S3method(summary,estprod)
 export(interactions)
 export(levinsohn_petrin)
 export(olley_pakes)
+export(wooldridge)
 export(panel_lag)
 export(poly_elements)
+importFrom("stats", "binomial", "complete.cases", "glm", "model.frame",
+             "pnorm", "poly", "predict", "printCoefmat", "terms", "var",
+           "as.formula")
+importFrom("utils", "read.table")
